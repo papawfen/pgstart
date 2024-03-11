@@ -6,6 +6,7 @@ START_TEST(two_roots_1) {
     double *my_res = quadratic_equation(1, 14, 45);
     ck_assert_double_eq_tol(res[0], my_res[0], 6);
     ck_assert_double_eq_tol(res[1], my_res[1], 6);
+    free(my_res);
 }
 
 START_TEST(two_roots_2) {
@@ -13,6 +14,7 @@ START_TEST(two_roots_2) {
     double *my_res = quadratic_equation(-3, 4, 7);
     ck_assert_double_eq_tol(res[0], my_res[0], 1e-06);
     ck_assert_double_eq_tol(res[1], my_res[1], 1e-06);
+    free(my_res);
 }
 
 START_TEST(one_root_1) {
@@ -20,6 +22,7 @@ START_TEST(one_root_1) {
     double *my_res = quadratic_equation(1, -6, 9);
     ck_assert_double_eq_tol(res[0], my_res[0], 1e-06);
     ck_assert_double_eq_tol(res[1], my_res[1], 1e-06);
+    free(my_res);
 }
 
 START_TEST(one_root_2) {
@@ -27,16 +30,19 @@ START_TEST(one_root_2) {
     double *my_res = quadratic_equation(4, -12, 9);
     ck_assert_double_eq_tol(res[0], my_res[0], 1e-06);
     ck_assert_double_eq_tol(res[1], my_res[1], 1e-06);
+    free(my_res);
 }
 
 START_TEST(no_root_1) {
     double *my_res = quadratic_equation(2, -3, 5);
     ck_assert_ptr_null(my_res);
+    free(my_res);
 }
 
 START_TEST(no_root_2) {
     double *my_res = quadratic_equation(1, 4, 9);
     ck_assert_ptr_null(my_res);
+    free(my_res);
 }
 
 int main(void) {
@@ -58,5 +64,3 @@ int main(void) {
 
   return nf == 0 ? 0 : 1;
 }
-
-
