@@ -1,6 +1,7 @@
 #include "quadratic_equation.h"
 
 double* quadratic_equation(double a, double b, double c) {
+    if (a == 0) return NULL;
     if (isnan(a) || isnan(b) || isnan(c)) return NULL;
     double *res = calloc(2, sizeof(double));
     double d = pow(b, 2.0) - 4.0 * a * c; // d == 0 у уравнения 1 корень равный нулю
